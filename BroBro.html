@@ -85,6 +85,43 @@
             font-size: 0.9rem;
             opacity: 0.7;
         }
+        button {
+            background-color: var(--accent);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            font-size: 1.1rem;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            border-bottom: 3px solid #b85e1a;
+        }
+        button:hover {
+            background-color: #d35400;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+        }
+        button:active {
+            transform: translateY(0);
+            border-bottom-width: 1px;
+        }
+        .build-output {
+            background: #f9f2e7;
+            padding: 20px;
+            border-radius: 12px;
+            margin-top: 20px;
+            border: 1px dashed var(--primary);
+            font-size: 1.1rem;
+        }
+        .build-output p {
+            margin: 10px 0;
+        }
+        .highlight {
+            color: var(--accent);
+            font-weight: 700;
+        }
     </style>
 </head>
 <body>
@@ -142,9 +179,91 @@
     </div>
 </div>
 
+<!-- New interactive section: Random Build Generator -->
+<section class="card">
+    <h2>🥔 Random Build Generator</h2>
+    <p>Feeling lucky? Generate a random Brotato build for your next wave!</p>
+    <button id="generateBuild">Generate Build</button>
+    <div id="buildOutput" class="build-output">
+        <p>Click the button to see your build ✨</p>
+    </div>
+</section>
+
 <footer>
     <p>© 2026 Brotato Botanical Research | Warning: Do not feed after wave 20.</p>
 </footer>
+
+<script>
+    (function() {
+        // Data pools for random generation
+        const weapons = [
+            "Revolver", "Shotgun", "SMG", "Minigun", "Rocket Launcher",
+            "Sword", "Axe", "Spear", "Wrench", "Shield",
+            "Crossbow", "Lightning Shiv", "Obliterator", "Potato Thrower"
+        ];
+        
+        const characters = [
+            "Gladiator", "Ranger", "Mage", "Engineer", "Lumberjack",
+            "Brawler", "Hunter", "Demolitionist", "Medic", "Artificer"
+        ];
+        
+        const perks = [
+            "+30% Attack Speed", "Piercing Shots", "Explosive Rounds",
+            "Life Steal", "Double Damage on First Hit", "Bullet Shield",
+            "Burning Touch", "Slow on Hit", "Chain Lightning", "Armor Break",
+            "Critical Chance +15%", "Dodge +10%", "Pickup Radius +50%"
+        ];
+        
+        const stats = [
+            { name: "HP", min: 200, max: 800 },
+            { name: "Damage", min: 15, max: 75 },
+            { name: "Speed", min: 2, max: 10 },
+            { name: "Armor", min: 0, max: 15 },
+            { name: "Luck", min: 10, max: 100 }
+        ];
+
+        function randomElement(arr) {
+            return arr[Math.floor(Math.random() * arr.length)];
+        }
+
+        function randomInt(min, max) {
+            return Math.floor(Math.random() * (max - min + 1)) + min;
+        }
+
+        function generateBuild() {
+            // Pick random components
+            const weapon = randomElement(weapons);
+            const character = randomElement(characters);
+            
+            // Pick 3 unique perks
+            const shuffled = [...perks].sort(() => 0.5 - Math.random());
+            const selectedPerks = shuffled.slice(0, 3);
+            
+            // Generate random stats
+            const hp = randomInt(200, 800);
+            const dmg = randomInt(15, 75);
+            const spd = randomInt(2, 10);
+            const armor = randomInt(0, 15);
+            const luck = randomInt(10, 100);
+            
+            // Format output HTML
+            return `
+                <p><span class="highlight">Class:</span> ${character}</p>
+                <p><span class="highlight">Primary Weapon:</span> ${weapon}</p>
+                <p><span class="highlight">Perks:</span> ${selectedPerks.join(' · ')}</p>
+                <p><span class="highlight">Stats:</span> HP:${hp} | DMG:${dmg} | SPD:${spd} | ARM:${armor} | LUCK:${luck}</p>
+            `;
+        }
+
+        // Wire up button
+        const btn = document.getElementById('generateBuild');
+        const output = document.getElementById('buildOutput');
+        
+        btn.addEventListener('click', () => {
+            output.innerHTML = generateBuild();
+        });
+    })();
+</script>
 
 </body>
 </html>
