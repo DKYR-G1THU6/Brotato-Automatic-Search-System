@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brotato | The Ultimate Potato Variety</title>
+    <style>
+        :root {
+            --primary: #8b5a2b;
+            --accent: #e67e22;
+            --bg: #fdfaf6;
+            --text: #2d241e;
+        }
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.8;
+            color: var(--text);
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            background-color: var(--bg);
+        }
+        header {
+            text-align: center;
+            border-bottom: 4px solid var(--primary);
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+        }
+        h1 {
+            font-size: 3rem;
+            margin: 0;
+            color: var(--primary);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        .tagline {
+            font-style: italic;
+            color: #7f8c8d;
+            font-size: 1.1rem;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-top: 30px;
+        }
+        @media (max-width: 600px) {
+            .grid { grid-template-columns: 1fr; }
+        }
+        .card {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            border-left: 5px solid var(--accent);
+        }
+        h2 {
+            color: var(--primary);
+            margin-top: 0;
+        }
+        ul {
+            padding-left: 20px;
+        }
+        li {
+            margin-bottom: 10px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            text-align: left;
+            padding: 12px;
+            border-bottom: 1px solid #eee;
+        }
+        th {
+            background-color: var(--primary);
+            color: white;
+            border-radius: 4px 4px 0 0;
+        }
+        footer {
+            text-align: center;
+            margin-top: 60px;
+            font-size: 0.9rem;
+            opacity: 0.7;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>The Brotato</h1>
+    <p class="tagline">"The only potato that survives 20 waves of heat."</p>
+</header>
+
+<section class="card">
+    <h2>Overview</h2>
+    <p>The <strong>Brotato</strong> is a legendary variety of tuber known for its unparalleled resilience and adaptive morphology. Unlike standard potatoes, the Brotato thrives in high-pressure environments and is famously capable of handling multiple "attachments" at once, making it the most versatile crop in the kitchen—or on the battlefield.</p>
+</section>
+
+<div class="grid">
+    <div class="card">
+        <h2>Key Characteristics</h2>
+        <ul>
+            <li><strong>Hardened Skin:</strong> Provides high natural armor against bruising.</li>
+            <li><strong>High Synergy:</strong> Pairs perfectly with up to 6 different spices or tools simultaneously.</li>
+            <li><strong>Rapid Evolution:</strong> Known to improve its nutritional stats every 60 seconds during cooking.</li>
+        </ul>
+    </div>
+
+    <div class="card">
+        <h2>Culinary Stats</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Method</th>
+                    <th>Bonus</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Deep Fried</td>
+                    <td>+25% Critical Crunch</td>
+                </tr>
+                <tr>
+                    <td>Mashed</td>
+                    <td>Area of Effect (AoE) Flavor</td>
+                </tr>
+                <tr>
+                    <td>Baked</td>
+                    <td>Long-term Energy Regen</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<footer>
+    <p>© 2026 Brotato Botanical Research | Warning: Do not feed after wave 20.</p>
+</footer>
+
+</body>
+</html>
